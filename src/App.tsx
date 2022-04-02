@@ -1,11 +1,14 @@
 import './App.css';
 import React from "react";
+import HeroSection from "./components/HeroSection";
+import SloganMaker from "./components/SloganMaker";
+import SloganFeatures from "./components/SloganFeatures";
+import FreeProducts from "./components/FreeProducts";
 
 const App: React.FC = () => {
   return (
-      <div className="flex flex-col justify-center items-center h-screen bg-black">
-        <h1 className="text-white">HELLO, I'M A REACT DEVELOPER!</h1>
-        <p className="text-white">- Rohan Singh Rawat</p>
+      <div className="flex flex-col relative justify-center items-center h-auto bg-appBg">
+          <HeroSection />
       </div>
   )
 }
