@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1811b809-ea6b-43b2-903b-17ecdd0a98c7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SloganMaker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SloganMaker.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,7 @@
       <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\src\mock" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\src" />
       <recent name="C:\Users\rsrof\Documents\react\personal\favicon.svg" />
       <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\public\icons" />
       <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\public\fonts" />
@@ -61,7 +63,7 @@
       <workItem from="1632908616958" duration="5248000" />
       <workItem from="1640538861586" duration="44000" />
       <workItem from="1648871324278" duration="422000" />
-      <workItem from="1648871760420" duration="27909000" />
+      <workItem from="1648871760420" duration="29222000" />
     </task>
     <servers />
   </component>

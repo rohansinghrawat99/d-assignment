@@ -32,7 +32,6 @@ const SloganList: React.FC<SloganListProps> = ({ sloganList }) => {
     const copyToClipboard = (text: string) => {
         copy(text);
     }
-    console.log(sloganList, 'SLLSLSLSL')
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 mb-12'>
             {
