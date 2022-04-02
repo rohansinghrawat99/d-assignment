@@ -38,7 +38,7 @@ const SloganList: React.FC<SloganListProps> = ({ sloganList }) => {
             {
                 sloganList.map((slogan: string, index: number) => (
                     <div className='flex items-center rounded bg-sloganBg px-4 py-2' key={index} id='tt_copy' onClick={() => copyToClipboard(slogan)}>
-                        <h3 className='font-normal'>
+                        <h3 className='text-sm md:text-[16px] font-normal'>
                             {slogan}
                         </h3>
                     </div>
