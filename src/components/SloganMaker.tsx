@@ -119,7 +119,7 @@ const SloganMaker: React.FC = () => {
                         </span> : null
                         }
                         {
-                            pageNumber !== totalPageNumber ? <span
+                            totalPageNumber !== 0 && pageNumber !== totalPageNumber ? <span
                                 className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
                                 onClick={() => {
                                     setPageNumber(totalPageNumber)
