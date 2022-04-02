@@ -3,9 +3,9 @@ import React from 'react';
 const Footer: React.FC = () => {
     return (
         <div className='flex flex-col bg-footerBg px-2 md:px-14 xl:px-40 pt-16 text-white text-xs md:text-lg'>
-            <div className='flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:items-start mb-10'>
-                <img src="/icons/logo.svg" alt="" className='md:mr-2 xl:mr-32'/>
-                <div className='flex space-x-4 md:space-x-10 xl:space-x-24'>
+            <div className='flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:items-start mb-10 md:justify-between'>
+                <img src="/icons/logo.svg" alt="" className=''/>
+                <div className='flex space-x-4 md:space-x-10 xl:space-x-24 2xl:space-x-44'>
                     <div className='flex flex-col xl:space-y-4'>
                         <a href="#">Contact</a>
                         <a href="#">FAQ's</a>
