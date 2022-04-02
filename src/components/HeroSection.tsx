@@ -2,6 +2,7 @@ import React from 'react';
 import SloganMaker from "./SloganMaker";
 import SloganFeatures from "./SloganFeatures";
 import FreeProducts from "./FreeProducts";
+import Footer from "./Footer";
 
 const HeroSection: React.FC = () => {
     return (
@@ -21,6 +22,8 @@ const HeroSection: React.FC = () => {
                 <SloganMaker />
             </div>
             <SloganFeatures />
+            <FreeProducts />
+            <Footer />
         </div>
     )
 }

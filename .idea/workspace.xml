@@ -4,8 +4,11 @@
     <list default="true" id="1811b809-ea6b-43b2-903b-17ecdd0a98c7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FreeProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FreeProducts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SloganFeatures.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SloganFeatures.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SloganList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SloganList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SloganMaker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SloganMaker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -38,12 +41,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.16.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.17.19" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/mock" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\src\mock" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\public\icons" />
       <recent name="C:\Users\rsrof\Documents\react\personal\dukaan-assignment\public\fonts" />
@@ -61,7 +67,7 @@
       <workItem from="1632908616958" duration="5248000" />
       <workItem from="1640538861586" duration="44000" />
       <workItem from="1648871324278" duration="422000" />
-      <workItem from="1648871760420" duration="11929000" />
+      <workItem from="1648871760420" duration="22928000" />
     </task>
     <servers />
   </component>

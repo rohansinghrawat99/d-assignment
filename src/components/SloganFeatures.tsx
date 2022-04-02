@@ -2,10 +2,8 @@ import React from 'react';
 
 const SloganFeatures: React.FC = () => {
     return (
-        <div className='w-full'>
-            <div className='absolute w-full h-[332px] bg-heroBg opacity-5'>
-            </div>
-            <div className='absolute flex space-x-8 items-start text-center pt-[4.5rem] pb-12 mx-48'>
+        <div className='bg-featuresBg pt-[4.75rem] pb-16 px-48'>
+            <div className='flex space-x-8 items-start text-center'>
                 <div className='flex flex-1 flex-col justify-center items-center'>
                     <img src="/icons/search.svg" alt="" className='mb-8'/>
                     <h1 className='text-xl font-semibold mb-2'>Search</h1>

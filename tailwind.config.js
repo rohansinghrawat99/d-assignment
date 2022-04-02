@@ -9,6 +9,8 @@ module.exports = {
         sloganBg: '#F2F2F2',
         borderBg: '#D9D9D9',
         smallText: '#4D4D4D',
+        featuresBg: 'rgba(20, 110, 180, 0.05)',
+        footerBg: '#1A181E',
       }
     },
   },

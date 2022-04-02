@@ -1,31 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { SloganData } from "../mock/SloganData";
 import SloganList from "./SloganList";
 
 const SloganMaker: React.FC = () => {
+    const sloganData = SloganData;
     const [search, setSearch] = useState<string>('')
-    const [pageData, setPageData] = useState<string[]>([])
+    const [pageData, setPageData] = useState<string[]>(sloganData.slice(0, 18))
+    const [allData, setAllData] = useState<string[]>([])
     const [pageNumber, setPageNumber] = useState<number>(1)
     const [totalPageNumber, setTotalPageNumber] = useState<number>(1)
     const [totalSloganLength, setTotalSloganLength] = useState<number>(18)
-    const sloganData = SloganData;
+    const [isInitialRender, setIsInitialRender] = useState<boolean>(true)
 
     useEffect(() => {
+        setAllData(sloganData)
         setPageData(sloganData.slice(0, 18))
         setTotalSloganLength(sloganData.length)
         setTotalPageNumber(Math.ceil((sloganData.length / 18)))
+        setIsInitialRender(false)
     }, []);
+
+    const handlePageNumberChanged = (pageNo: number) => {
+        console.log(pageNo, 'PAGE NUMBER')
+        const finalSearchedSlogans = allData.slice((((pageNo - 1) * 18) - 1), ((pageNo * 18) - 1))
+        console.log(allData, allData.slice((((pageNo - 1) * 18) - 1), ((pageNo * 18) - 1)), 'CHANGE')
+        setPageData(finalSearchedSlogans)
+    }
 
     const handleSearch = () => {
         let finalSearchedSlogans: string[] = [];
-        const allSearchedSlogans = sloganData.filter(e => {
-            e.includes(search)
-        })
+        const allSearchedSlogans: string[] = [];
+        // const allSearchedSlogans = sloganData.filter(e => {
+        //     e.includes(search)
+        // })
+        for (const slogan of sloganData) {
+            if (slogan.includes(search)) {
+                allSearchedSlogans.push(slogan)
+            }
+        }
+        finalSearchedSlogans = allSearchedSlogans.slice((((pageNumber - 1) * 18) - 1), ((pageNumber * 18) - 1))
+        setPageData([])
+        console.log(pageData, 'NAHI')
+        setPageData(finalSearchedSlogans)
+        console.log(allSearchedSlogans, finalSearchedSlogans, 'ACHCHAH')
         setTotalSloganLength(allSearchedSlogans.length)
         setTotalPageNumber(Math.ceil((allSearchedSlogans.length / 18)))
-        finalSearchedSlogans = allSearchedSlogans.slice((((pageNumber - 1) * 18) - 1), ((pageNumber * 18) - 1))
-        setPageData(finalSearchedSlogans)
+        setAllData(allSearchedSlogans)
     }
+
+    const SloganSection = useMemo(() => (
+        <SloganList sloganList={pageData} />
+    ), [pageData])
     return (
         <div className='w-full'>
             <div className='flex flex-col bg-white rounded-lg px-48 pt-16 pb-[66px]'>
@@ -38,8 +63,10 @@ const SloganMaker: React.FC = () => {
                     <span className='relative w-80'>
                         <input type="text" className='rounded h-12 w-80 border border-borderBg px-4'
                                onChange={(e) => setSearch(e.target.value)}/>
-                        <img src="/icons/cross.svg" alt="" className='absolute top-4 right-4'
-                             onClick={() => setSearch('')}/>
+                        <img src="/icons/cross.svg" alt="" className='absolute top-4 right-4 cursor-pointer'
+                             onClick={() => {
+                                 setSearch('');
+                             }}/>
                     </span>
                 </div>
                 <div className='flex w-full items-start mb-12'>
@@ -52,31 +79,50 @@ const SloganMaker: React.FC = () => {
                     <h2 className='text-xl'>{`We have generated ${totalSloganLength} slogans for ${search}`}</h2>
                     <button className='text-heroBg border border-heroBg rounded px-4 py-1.5'>Download All</button>
                 </div>
-                <SloganList sloganList={pageData}/>
+                {SloganSection}
                 <span className='bg-dividerBg h-px mb-6'></span>
                 <div className='flex relative w-full items-center justify-center'>
                     <div className='flex space-x-[15px]'>
-                        <span className='flex items-center justify-center h-6 w-6 bg-heroBg rounded-full text-white cursor-pointer' onClick={() => setPageNumber(pageNumber)}>
+                        <span
+                            className='flex items-center justify-center h-6 w-6 bg-heroBg rounded-full text-white cursor-pointer'>
                             {pageNumber}
                         </span>
-                        <span className='flex items-center justify-center text-heroBg cursor-pointer' onClick={() => setPageNumber(pageNumber + 1)}>
+                        <span className='flex items-center justify-center text-heroBg cursor-pointer'
+                              onClick={() => {
+                                  setPageNumber(pageNumber + 1)
+                                  handlePageNumberChanged(pageNumber + 1)
+                              }}>
                             {pageNumber + 1}
                         </span>
-                        <span className='flex items-center justify-center text-heroBg cursor-pointer' onClick={() => setPageNumber(pageNumber + 2)}>
+                        <span className='flex items-center justify-center text-heroBg cursor-pointer'
+                              onClick={() => {
+                                  setPageNumber(pageNumber + 2)
+                                  handlePageNumberChanged(pageNumber + 2)
+                              }}>
                             {pageNumber + 2}
                         </span>
                         <span className='flex items-end justify-center text-heroBg'>
                             {'...'}
                         </span>
-                        <span className='flex items-center justify-center text-heroBg cursor-pointer' onClick={() => setPageNumber(totalPageNumber)}>
+                        <span className='flex items-center justify-center text-heroBg cursor-pointer'
+                              onClick={() => {
+                                  setPageNumber(totalPageNumber)
+                                  handlePageNumberChanged(totalPageNumber)
+                              }}>
                             {totalPageNumber}
                         </span>
                     </div>
-                    <span className='flex items-center text-heroBg absolute left-0 space-x-1.5'>
+                    <span className='flex items-center text-heroBg absolute left-0 space-x-1.5 cursor-pointer' onClick={() => {
+                        setPageNumber(pageNumber - 1)
+                        handlePageNumberChanged(pageNumber - 1)
+                    }}>
                         <img src="/icons/next.svg" alt="" className='h-full rotate-180'/>
                         <h1 className='text-sm'>{'Previous'}</h1>
                     </span>
-                    <span className='flex items-center text-heroBg absolute right-0 space-x-1'>
+                    <span className='flex items-center text-heroBg absolute right-0 space-x-1 cursor-pointer' onClick={() => {
+                        setPageNumber(pageNumber + 1)
+                        handlePageNumberChanged(pageNumber + 1)
+                    }}>
                         <h1 className='text-sm'>{'Next'}</h1>
                         <img src="/icons/next.svg" alt="" className='h-full'/>
                     </span>
