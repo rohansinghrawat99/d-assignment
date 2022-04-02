@@ -54,7 +54,7 @@ const SloganMaker: React.FC = () => {
     return (
         <div className='w-full'>
             <div className='flex flex-col bg-white rounded-lg px-6 md:px-20 xl:px-48 pt-8 md:pt-16 pb-10 md:pb-[66px]'>
-                <h1 className='text-2xl md:text-4xl font-semibold mb-4'>Free Slogan Maker</h1>
+                <h1 className='text-2xl md:text-4xl font-galanoGrotesqueSemiBold mb-4'>Free Slogan Maker</h1>
                 <p className='text-sm md:text-xl text-smallText font-normal mb-12'>
                     Simply enter a term that describes your business, and get up to 1,000 relevant slogans for free.
                 </p>

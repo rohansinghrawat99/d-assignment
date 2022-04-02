@@ -11,6 +11,9 @@ module.exports = {
         smallText: '#4D4D4D',
         featuresBg: 'rgba(20, 110, 180, 0.05)',
         footerBg: '#1A181E',
+      },
+      fontFamily: {
+        galanoGrotesqueSemiBold: ['Galano Grotesque SemiBold'],
       }
     },
   },

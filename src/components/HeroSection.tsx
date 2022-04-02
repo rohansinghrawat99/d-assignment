@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
             <div className='flex flex-col w-full items-center px-10 md:px-24 xl:px-40 pt-6 space-y-16 mb-20'>
                 <div className='flex w-full justify-between'>
                     <img src="/icons/logo.svg" alt="" className='w-24 md:w-40'/>
-                    <div className='flex space-x-8 text-sm md:text-lg'>
+                    <div className='flex space-x-4 md:space-x-8 text-sm md:text-lg'>
                         <button className='text-white'>
                             Sign In
                         </button>

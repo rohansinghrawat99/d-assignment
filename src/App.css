@@ -10,6 +10,13 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Galano Grotesque SemiBold";
+    src: url("/fonts/galanogrotesque-semibold.otf") format("opentype");
+    font-style: regular;
+    font-display: swap;
+}
+
 html,
 body {
     padding: 0;
