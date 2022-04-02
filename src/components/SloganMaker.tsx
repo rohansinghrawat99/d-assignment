@@ -5,6 +5,7 @@ import SloganList from "./SloganList";
 const SloganMaker: React.FC = () => {
     const sloganData = SloganData;
     const [search, setSearch] = useState<string>('')
+    const [searched, setSearched] = useState<string>('')
     const [pageData, setPageData] = useState<string[]>([])
     const [allData, setAllData] = useState<string[]>([])
     const [pageNumber, setPageNumber] = useState<number>(1)
@@ -28,9 +29,12 @@ const SloganMaker: React.FC = () => {
         setPageData(sloganData.slice(0, 18))
         setTotalSloganLength(sloganData.length)
         setTotalPageNumber(Math.ceil((sloganData.length / 18)))
+        setSearch('')
+        setSearched('')
     }
 
     const handleSearch = () => {
+        setSearched(search)
         const allSearchedSlogans: string[] = [];
         for (const slogan of sloganData) {
             if (slogan.includes(search)) {
@@ -57,11 +61,11 @@ const SloganMaker: React.FC = () => {
                 <div className='flex flex-col space-y-2 mb-12'>
                     <h2 className='text-sm md:text-[16px] font-normal'>Word for your slogan</h2>
                     <span className='relative w-64 md:w-80'>
-                        <input type="text" className='rounded h-10 md:h-12 w-64 md:w-80 border border-borderBg px-4'
+                        <input type="text"
+                               className='rounded h-10 md:h-12 w-64 md:w-80 border border-borderBg px-4 text-smallText'
                                onChange={(e) => setSearch(e.target.value)} value={search}/>
                         <img src="/icons/cross.svg" alt="" className='absolute top-3 md:top-4 right-4 cursor-pointer'
                              onClick={() => {
-                                 setSearch('');
                                  handleClear()
                              }}/>
                     </span>
@@ -74,7 +78,7 @@ const SloganMaker: React.FC = () => {
                 </div>
                 <span className='bg-dividerBg h-px mb-[52px]'></span>
                 <div className='flex w-full justify-between items-center mb-9'>
-                    <h2 className='text-sm md:text-xl'>{`${search ? `We have generated ${totalSloganLength} slogans for ${search}` : `We have generated ${totalSloganLength} slogans`}`}</h2>
+                    <h2 className='text-sm md:text-xl'>{`${searched ? `We have generated ${totalSloganLength} slogans for ${searched}` : `We have generated ${totalSloganLength} slogans`}`}</h2>
                     <button
                         className='text-heroBg border border-heroBg rounded text-xs md:text-[16px] px-2 md:px-4 py-1.5'>Download
                         All
@@ -88,30 +92,42 @@ const SloganMaker: React.FC = () => {
                             className='flex items-center justify-center text-xs md:text-sm h-6 w-6 bg-heroBg rounded-full text-white cursor-pointer'>
                             {pageNumber}
                         </span>
-                        <span className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
-                              onClick={() => {
-                                  setPageNumber(pageNumber + 1)
-                                  handlePageNumberChanged(pageNumber + 1)
-                              }}>
+                        {
+                            pageNumber + 1 < totalPageNumber ? <span
+                                className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
+                                onClick={() => {
+                                    setPageNumber(pageNumber + 1)
+                                    handlePageNumberChanged(pageNumber + 1)
+                                }}>
                             {pageNumber + 1}
-                        </span>
-                        <span className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
-                              onClick={() => {
-                                  setPageNumber(pageNumber + 2)
-                                  handlePageNumberChanged(pageNumber + 2)
-                              }}>
+                        </span> : null
+                        }
+                        {
+                            pageNumber + 1 < totalPageNumber ? <span
+                                className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
+                                onClick={() => {
+                                    setPageNumber(pageNumber + 2)
+                                    handlePageNumberChanged(pageNumber + 2)
+                                }}>
                             {pageNumber + 2}
-                        </span>
-                        <span className='flex items-end justify-center text-xs md:text-sm text-heroBg'>
+                        </span> : null
+                        }
+                        {
+                            pageNumber + 2 < totalPageNumber ?
+                                <span className='flex items-end justify-center text-xs md:text-sm text-heroBg'>
                             {'...'}
-                        </span>
-                        <span className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
-                              onClick={() => {
-                                  setPageNumber(totalPageNumber)
-                                  handlePageNumberChanged(totalPageNumber)
-                              }}>
+                        </span> : null
+                        }
+                        {
+                            pageNumber !== totalPageNumber ? <span
+                                className='flex items-center justify-center text-xs md:text-sm text-heroBg cursor-pointer'
+                                onClick={() => {
+                                    setPageNumber(totalPageNumber)
+                                    handlePageNumberChanged(totalPageNumber)
+                                }}>
                             {totalPageNumber}
-                        </span>
+                        </span> : null
+                        }
                     </div>
                     {
                         pageNumber !== 1 ?
@@ -124,14 +140,17 @@ const SloganMaker: React.FC = () => {
                         <h1 className='text-xs md:text-sm'>{'Previous'}</h1>
                     </span> : null
                     }
-                    <span className='flex items-center text-heroBg absolute right-0 space-x-1 cursor-pointer'
-                          onClick={() => {
-                              setPageNumber(pageNumber + 1)
-                              handlePageNumberChanged(pageNumber + 1)
-                          }}>
+                    {
+                        pageNumber !== totalPageNumber ?
+                            <span className='flex items-center text-heroBg absolute right-0 space-x-1 cursor-pointer'
+                                  onClick={() => {
+                                      setPageNumber(pageNumber + 1)
+                                      handlePageNumberChanged(pageNumber + 1)
+                                  }}>
                         <h1 className='text-xs md:text-sm'>{'Next'}</h1>
                         <img src="/icons/next.svg" alt="" className='h-full'/>
-                    </span>
+                    </span> : null
+                    }
                 </div>
             </div>
         </div>
